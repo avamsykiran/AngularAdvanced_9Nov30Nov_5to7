@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BTWidgetsModule } from './btwidgets/btwidgets.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,7 +13,8 @@ import { WelcomeModule } from './welcome/welcome.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    WelcomeModule
+    WelcomeModule,
+    BTWidgetsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

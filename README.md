@@ -40,6 +40,22 @@ Advanced Angular Integration With Java Middleware
         2. A consumer can record as many trnasactions of type CREDIT and DEBIT
         3. The application should generate account statements as needed.
 
+    Widget
 
-    
+        is a reusable component and is completly decoupled to the actual application.
+
+        NavBar
+            title, links and hideLogout are the attributes
+            logoutClick was an event attribute.
+
+        MsgBox
+            type attribute      info/error (accordingly the message box theam must change alert-info/alert-danger)
+            msg attribute       is the information to be displayed    
+            CLOSE button click must be handled by the main app
+
+            sample template
+                <div class="alert p-4">
+                    {{msg}}
+                    <button type="button">CLOSE</button>
+                </div>
 

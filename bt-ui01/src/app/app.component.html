@@ -1,1 +1,4 @@
-<router-outlet></router-outlet>
+<app-nav-bar title="BudgetTracker 1.0" [links]="links" (logoutClick)="logout()"></app-nav-bar>
+<div class="container-fluid p-4">
+    <router-outlet></router-outlet>
+</div>
