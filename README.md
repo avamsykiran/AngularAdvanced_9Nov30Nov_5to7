@@ -59,3 +59,31 @@ Advanced Angular Integration With Java Middleware
                     <button type="button">CLOSE</button>
                 </div>
 
+    Router Guards
+
+        Are services that verify if a route shall work or not
+
+        CanAcivate
+        CanDeactivate
+        CanMatch
+        CanActivateChild
+
+        CanActivate     return true for the navigation to happen or
+                        should return an alternate url tree.
+
+            const routes: Routes = [
+                { path: '', pathMatch: 'full', redirectTo: '/login' },
+                { path: 'login', component: LoginComponent,canActivate:[anonymousUserCheckGuard] },
+                { path: 'dashboard', component: DashBoardComponent,canActivate:[loggedInUserCheckGuard] }
+            ];
+
+        CanDeactivate   return true for the current path to be left (navigate from current path to elsewhere).
+
+        CanMatch        return true for the path to be matched or
+                        return false for the path to be skipped from matching.
+
+            const routes: Routes = [
+                { path: '', pathMatch: 'full', component: LoginComponent,canMatch:[anonymousUserCheckGuard] },
+                { path: '', pathMatch: 'full', component: DashBoardComponent,canMatch:[loggedInUserCheckGuard] }
+            ];
+        
