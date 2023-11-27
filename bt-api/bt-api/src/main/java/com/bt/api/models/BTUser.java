@@ -23,8 +23,8 @@ public class BTUser {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long userId;
-	private string userName;
-	private string password;
+	private String userName;
+	private String password;
 	@Enumerated(EnumType.STRING)
 	private BTRole role;
 	
@@ -32,7 +32,7 @@ public class BTUser {
 		this.role=BTRole.ADMIN;
 	}
 
-	public BTUser(string userName, string password) {
+	public BTUser(String userName, String password) {
 		this();
 		this.userName = userName;
 		this.password = password;
@@ -46,19 +46,19 @@ public class BTUser {
 		this.userId = userId;
 	}
 
-	public string getUserName() {
+	public String getUserName() {
 		return userName;
 	}
 
-	public void setUserName(string userName) {
+	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 
-	public string getPassword() {
+	public String getPassword() {
 		return password;
 	}
 
-	public void setPassword(string password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 
@@ -69,7 +69,7 @@ public class BTUser {
 	public void setRole(BTRole role) {
 		this.role = role;
 	}
-	
+
 	
 	
 }

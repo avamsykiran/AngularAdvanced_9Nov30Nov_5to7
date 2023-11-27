@@ -15,7 +15,7 @@ public class AccountHolder extends BTUser {
 		this.setRole(BTRole.ACCOUNT_HOLDER);
 	}
 
-	public AccountHolder(string userName, string password, String fullName, String mobileNumber, String mailId) {
+	public AccountHolder(String userName, String password, String fullName, String mobileNumber, String mailId) {
 		super(userName, password);
 		this.fullName = fullName;
 		this.mobileNumber = mobileNumber;

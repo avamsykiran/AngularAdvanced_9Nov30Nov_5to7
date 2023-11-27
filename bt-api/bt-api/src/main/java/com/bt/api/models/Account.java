@@ -20,7 +20,7 @@ public class Account {
 	private AccountHolder accountHolder;
 	
 	public Account() {
-		this.currentBalance=0;
+		this.currentBalance=0.0;
 	}
 
 	public Account(AccountHolder accountHolder) {
