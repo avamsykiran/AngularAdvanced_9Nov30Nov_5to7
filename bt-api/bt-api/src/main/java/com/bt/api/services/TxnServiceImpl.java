@@ -7,11 +7,11 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bt.api.models.Account;
-import com.bt.api.models.Txn;
-import com.bt.api.models.TxnType;
-import com.bt.api.models.repos.AccountRepo;
-import com.bt.api.models.repos.TxnRepo;
+import com.bt.api.entities.Account;
+import com.bt.api.entities.Txn;
+import com.bt.api.entities.TxnType;
+import com.bt.api.repos.AccountRepo;
+import com.bt.api.repos.TxnRepo;
 
 @Service
 @Transactional

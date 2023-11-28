@@ -11,11 +11,11 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.bt.api.models.AccountHolder;
-import com.bt.api.models.BTRole;
-import com.bt.api.models.BTUser;
-import com.bt.api.models.repos.AccountHolderRepo;
-import com.bt.api.models.repos.BTUserRepo;
+import com.bt.api.entities.AccountHolder;
+import com.bt.api.entities.BTRole;
+import com.bt.api.entities.BTUser;
+import com.bt.api.repos.AccountHolderRepo;
+import com.bt.api.repos.BTUserRepo;
 
 @Service
 public class BTUserServiceImpl implements BTUserService {
@@ -45,21 +45,23 @@ public class BTUserServiceImpl implements BTUserService {
 	}
 
 	@Override
-	public void createAdmin(BTUser btUser) {
+	public BTUser createAdmin(BTUser btUser) {
 		if(btUser!=null) {
 			btUser.setPassword(passwordEncoder.encode(btUser.getPassword()));
 			btUser.setRole(BTRole.ADMIN);
-			userRepo.save(btUser);
+			btUser = userRepo.save(btUser);
 		}
+		return btUser;
 	}
 	
 	@Override
-	public void createAccountHolder(AccountHolder accountHolder) {
+	public AccountHolder createAccountHolder(AccountHolder accountHolder) {
 		if(accountHolder!=null) {
 			accountHolder.setPassword(passwordEncoder.encode(accountHolder.getPassword()));
 			accountHolder.setRole(BTRole.ACCOUNT_HOLDER);
-			accountHolderRepo.save(accountHolder);
+			accountHolder = accountHolderRepo.save(accountHolder);
 		}
+		return accountHolder;
 	}
 	
 }

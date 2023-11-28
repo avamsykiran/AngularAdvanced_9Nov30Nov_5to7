@@ -2,7 +2,7 @@ package com.bt.api.services;
 
 import java.util.List;
 
-import com.bt.api.models.Txn;
+import com.bt.api.entities.Txn;
 
 public interface TxnService {
 

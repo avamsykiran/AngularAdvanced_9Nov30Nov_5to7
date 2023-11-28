@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bt.api.models.Account;
-import com.bt.api.models.repos.AccountRepo;
+import com.bt.api.entities.Account;
+import com.bt.api.repos.AccountRepo;
 
 @Service
 public class AccountServiceImpl implements AccountsService {

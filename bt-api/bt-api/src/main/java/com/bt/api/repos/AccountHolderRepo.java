@@ -1,10 +1,10 @@
-package com.bt.api.models.repos;
+package com.bt.api.repos;
 
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.bt.api.models.AccountHolder;
+import com.bt.api.entities.AccountHolder;
 
 public interface AccountHolderRepo extends JpaRepository<AccountHolder, Long> {
 

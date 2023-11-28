@@ -1,4 +1,4 @@
-package com.bt.api.models;
+package com.bt.api.entities;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
