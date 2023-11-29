@@ -31,11 +31,8 @@ public class AccountsApi {
 	@Autowired
 	private TxnService txnService;
 	
-	@Autowired
-	private Principal currentUser;
-		
 	@GetMapping
-	public ResponseEntity<List<Account>> getAllAccountsOfCurrentUser(){
+	public ResponseEntity<List<Account>> getAllAccountsOfCurrentUser(Principal currentUser){
 		return ResponseEntity.ok(accountsService.getAllByUserName(currentUser.getName()));
 	}
 	

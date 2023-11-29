@@ -14,6 +14,9 @@ import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 @Entity
 @Table(name="txns")
 public class Txn {
@@ -29,6 +32,7 @@ public class Txn {
 	private String header;
 	
 	@ManyToOne
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private Account account;
 	
 	public Txn() {

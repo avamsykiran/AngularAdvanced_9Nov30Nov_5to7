@@ -13,12 +13,11 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
-
 @Component
 public class JwtTokenUtil implements Serializable {
 	private static final long serialVersionUID = -2550185165626007488L;
-	public static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60; //five hours
-	
+	public static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60; // five hours
+
 	@Value("${jwt.secret}")
 	private String secret;
 
@@ -51,6 +50,10 @@ public class JwtTokenUtil implements Serializable {
 	// generate token for user
 	public String generateToken(UserDetails userDetails) {
 		Map<String, Object> claims = new HashMap<>();
+		if (userDetails.getAuthorities() != null && !userDetails.getAuthorities().isEmpty()) {
+			String role = userDetails.getAuthorities().toArray()[0].toString();
+			claims.put("role", role);
+		}
 		return doGenerateToken(claims, userDetails.getUsername());
 	}
 
