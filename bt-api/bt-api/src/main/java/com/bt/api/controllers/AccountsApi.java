@@ -48,12 +48,12 @@ public class AccountsApi {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Account> addAccount(@RequestBody Account account){
-		return new ResponseEntity<>(accountsService.addAccount(account),HttpStatus.CREATED);
+	public ResponseEntity<Account> addAccount(@RequestBody Account account,Principal currentUser){
+		return new ResponseEntity<>(accountsService.addAccount(account,currentUser.getName()),HttpStatus.CREATED);
 	}
 	
 	@PutMapping
 	public ResponseEntity<Account> updateAccount(@RequestBody Account account){
-		return new ResponseEntity<>(accountsService.updateAccount(account),HttpStatus.CREATED);
+		return new ResponseEntity<>(accountsService.updateAccount(account),HttpStatus.ACCEPTED);
 	}
 }
