@@ -15,7 +15,9 @@
             <input type="password" name="tb2" [(ngModel)]="pwd" class="form-control"/>
         </div>
         <div class="d-grid">
-            <button class="btn btn-primary mt-1">Sign In</button>
+            <button class="btn btn-primary mt-1" [disabled]="isReqInProgress">
+               {{isReqInProgress?"Please wait ...":"Sign In"}}
+            </button>
         </div>
     </form>
 </section>

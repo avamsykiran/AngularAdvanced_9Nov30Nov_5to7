@@ -12,6 +12,7 @@ export class LoginComponent {
   unm:string;
   pwd:string;
   errMsg!:string;
+  isReqInProgress!:boolean;
   
   constructor(private authService:AuthenticationService,private router:Router){
     this.unm="";
@@ -19,10 +20,21 @@ export class LoginComponent {
   }
 
   formSubmitted(){
-    if(this.authService.autenticate(this.unm,this.pwd)){
-      this.router.navigateByUrl("");
-    }else{
-      this.errMsg="Invalid Credits! Login Denied!"
-    }
+    this.isReqInProgress=true;
+    this.authService.autenticate(this.unm,this.pwd).subscribe({
+      next: isLoggedIn => {
+        if(isLoggedIn){
+          this.router.navigateByUrl("");
+        }else{
+          this.errMsg="Invalid Credits! Login Denied!"
+        }
+      },
+      error: err =>{
+        console.log(err);
+        this.errMsg="Invalid Credits! Or Can not reach Server right now!"
+      },
+      complete: () => this.isReqInProgress=false
+    });
+    
   }
 }

@@ -42,6 +42,7 @@ public class BTUser {
 		this();
 		this.userName = userName;
 		this.password = password;
+		this.role=BTRole.ADMIN;
 	}
 
 	public Long getUserId() {

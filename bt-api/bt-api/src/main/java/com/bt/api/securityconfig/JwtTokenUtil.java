@@ -50,9 +50,11 @@ public class JwtTokenUtil implements Serializable {
 	// generate token for user
 	public String generateToken(UserDetails userDetails) {
 		Map<String, Object> claims = new HashMap<>();
+		System.out.println(userDetails.getUsername());
 		if (userDetails.getAuthorities() != null && !userDetails.getAuthorities().isEmpty()) {
 			String role = userDetails.getAuthorities().toArray()[0].toString();
 			claims.put("role", role);
+			System.out.println(userDetails.getUsername() + "\t" + role);
 		}
 		return doGenerateToken(claims, userDetails.getUsername());
 	}

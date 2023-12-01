@@ -1,1 +1,39 @@
-<p>register works!</p>
+<section class="col-sm-4 mx-auto border border-primary p-4">
+    <h4>Sign Up</h4>
+    
+    <div class="alert alert-danger p-2 fw-bold" *ngIf="errMsg">
+        {{errMsg}}
+    </div>
+
+    <form (ngSubmit)="formSubmitted()">
+        <div>
+            <label>User Name</label>
+            <input type="text" name="tb1" [(ngModel)]="userName" class="form-control"/>
+        </div>
+        <div>
+            <label>Password</label>
+            <input type="password" name="tb2" [(ngModel)]="password" class="form-control"/>
+        </div>
+        <div>
+            <label>Confirm Password</label>
+            <input type="password" name="tb3" [(ngModel)]="confirmPassword" class="form-control"/>
+        </div>
+        <div>
+            <label>Full Name</label>
+            <input type="text" name="tb4" [(ngModel)]="fullName" class="form-control"/>
+        </div>
+        <div>
+            <label>Mobile Number</label>
+            <input type="text" name="tb5" [(ngModel)]="mobileNumber" class="form-control"/>
+        </div>
+        <div>
+            <label>Mail Id</label>
+            <input type="email" name="tb6" [(ngModel)]="mailId" class="form-control"/>
+        </div>
+        <div class="d-grid">
+            <button class="btn btn-primary mt-1" [disabled]="isReqInProgress">
+               {{isReqInProgress?"Please wait ...":"Sign Up"}}
+            </button>
+        </div>
+    </form>
+</section>
